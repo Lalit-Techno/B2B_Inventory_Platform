@@ -1,0 +1,354 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in (Mobile) — LedgerStack</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#14532D',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#78350F',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'light-primary': '#003A3E',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#0F5257',
+        'light-on-primary-container': '#89C4C9',
+        'light-secondary': '#4D6264',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#D0E7E9',
+        'light-on-secondary-container': '#1F3436',
+        'light-tertiary': '#50290C',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#6B3F20',
+        'light-on-tertiary-container': '#EAAC85',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F8FAF9',
+        'light-on-background': '#191C1C',
+        'light-surface': '#F8FAF9',
+        'light-surface-dim': '#D9DADA',
+        'light-surface-bright': '#F8FAF9',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F2F4F4',
+        'light-surface-container': '#EDEEEE',
+        'light-surface-container-high': '#E7E8E8',
+        'light-surface-container-highest': '#E1E3E3',
+        'light-on-surface': '#191C1C',
+        'light-surface-variant': '#DBE4E5',
+        'light-on-surface-variant': '#404849',
+        'light-outline': '#707979',
+        'light-outline-variant': '#BFC8C9',
+        'light-inverse-surface': '#2E3131',
+        'light-inverse-on-surface': '#EFF1F1',
+        'light-inverse-primary': '#96D0D6',
+        'light-shadow': '#000000',
+        'light-scrim': '#000000',
+        'dark-primary': '#96D0D6',
+        'dark-on-primary': '#00363A',
+        'dark-primary-container': '#0F5257',
+        'dark-on-primary-container': '#89C4C9',
+        'dark-secondary': '#B4CBCD',
+        'dark-on-secondary': '#1F3436',
+        'dark-secondary-container': '#384D4F',
+        'dark-on-secondary-container': '#A6BDBF',
+        'dark-tertiary': '#F8B991',
+        'dark-on-tertiary': '#4D2609',
+        'dark-tertiary-container': '#6B3F20',
+        'dark-on-tertiary-container': '#EAAC85',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#111414',
+        'dark-on-background': '#E1E3E3',
+        'dark-surface': '#111414',
+        'dark-surface-dim': '#111414',
+        'dark-surface-bright': '#373A3A',
+        'dark-surface-container-lowest': '#0C0F0F',
+        'dark-surface-container-low': '#191C1C',
+        'dark-surface-container': '#1D2020',
+        'dark-surface-container-high': '#282A2B',
+        'dark-surface-container-highest': '#323535',
+        'dark-on-surface': '#E1E3E3',
+        'dark-surface-variant': '#404849',
+        'dark-on-surface-variant': '#BFC8C9',
+        'dark-outline': '#899293',
+        'dark-outline-variant': '#404849',
+        'dark-inverse-surface': '#E1E3E3',
+        'dark-inverse-on-surface': '#2E3131',
+        'dark-inverse-primary': '#2B676C',
+        'dark-shadow': '#000000',
+        'dark-scrim': '#000000',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'lg': '12px',
+        'xl': '16px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '28px',
+      },
+      fontFamily: {
+        'display': ['"Jost"', 'sans-serif'],
+        'headline': ['"Jost"', 'sans-serif'],
+        'title': ['"Radio Canada Big"', 'sans-serif'],
+        'body': ['"Radio Canada Big"', 'sans-serif'],
+        'label': ['"Radio Canada Big"', 'sans-serif'],
+        'mono': ['"Red Hat Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'headline-sm': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.25px', fontWeight: '500' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '400' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '200ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&amp;family=Radio+Canada+Big:wght@400;500;600&amp;family=Red+Hat+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-[884px] flex flex-col justify-between px-4 py-5" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <!-- Top Bar -->
+    <header class="w-full flex flex-col gap-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-7 h-7 rounded bg-light-primary text-light-on-primary flex items-center justify-center">
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">inventory_2</span>
+          </div>
+          <span data-design-text-token="title-md" class="font-headline text-title-md text-light-on-surface tracking-tight">LedgerStack</span>
+        </div>
+        <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-light-on-surface-variant">P1-FE-01</span>
+      </div>
+
+      <!-- Flow state switcher -->
+      <nav aria-label="Auth flow views" class="grid grid-cols-3 gap-1 p-1 rounded-md bg-light-surface-container-low border border-light-outline-variant/60">
+        <button type="button" data-auth-tab="login" class="auth-tab px-2 py-1.5 rounded text-label-sm font-label bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant/60 transition-colors duration-state-change">
+          Sign in
+        </button>
+        <button type="button" data-auth-tab="set-password" class="auth-tab px-2 py-1.5 rounded text-label-sm font-label text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">
+          Set password
+        </button>
+        <button type="button" data-auth-tab="forgot-reset" class="auth-tab px-2 py-1.5 rounded text-label-sm font-label text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">
+          Reset
+        </button>
+      </nav>
+    </header>
+
+    <!-- Auth Card -->
+    <main class="w-full my-auto py-5">
+      <!-- PANEL 1: LOGIN -->
+      <section id="panel-login" class="auth-panel rounded-lg bg-light-surface-container-lowest border border-light-outline-variant/70 p-5 flex flex-col gap-5">
+        <div class="flex flex-col gap-1">
+          <h1 data-design-text-token="headline-md" class="font-headline text-headline-md text-light-on-surface text-balance">Sign in to LedgerStack</h1>
+          <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant text-pretty">Enter your registered e-mail or mobile number.</p>
+        </div>
+
+        <form id="login-form" class="flex flex-col gap-4" onsubmit="return false;">
+          <label data-component-id="input-field-text" data-component-type="input-field" data-component-variant="text" class="flex flex-col gap-gutter-xs w-full">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-light-on-surface">E-mail or mobile number</span>
+            <input id="login-identifier" type="text" autocomplete="username" placeholder="vikram@ledgerstack.in or 9820144120" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:outline-none focus:ring-1 focus:ring-light-primary transition-colors duration-state-change">
+          </label>
+
+          <div class="flex flex-col gap-gutter-xs w-full">
+            <div class="flex items-center justify-between">
+              <label for="login-password" data-design-text-token="label-md" class="font-label text-label-md text-light-on-surface">Password</label>
+              <button type="button" onclick="switchAuthTab(&#39;forgot-reset&#39;)" class="font-label text-label-sm text-light-primary hover:underline">Forgot password?</button>
+            </div>
+            <div class="relative flex items-center">
+              <input id="login-password" type="password" autocomplete="current-password" placeholder="Enter your password" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest pl-3 pr-10 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:outline-none focus:ring-1 focus:ring-light-primary transition-colors duration-state-change">
+              <button type="button" aria-label="Toggle password visibility" onclick="togglePasswordVisibility(&#39;login-password&#39;, this)" class="absolute right-2.5 text-light-outline hover:text-light-on-surface p-1 rounded">
+                <span class="material-symbols-outlined text-[18px]">visibility</span>
+              </button>
+            </div>
+          </div>
+
+          <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="submit" onclick="simulateLogin()" class="mt-1 w-full inline-flex items-center justify-center gap-gutter-sm px-gutter-md py-2.5 rounded bg-light-primary text-light-on-primary hover:bg-light-primary-container focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-light-primary focus-visible:ring-offset-2 transition-colors duration-state-change ease-state-change">
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Sign in to workspace</span>
+          </button>
+        </form>
+
+        <div id="login-feedback" class="hidden rounded bg-success-container text-on-success-container px-3 py-2 flex items-center gap-2">
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+          <span id="login-feedback-text" data-design-text-token="body-sm" class="font-body text-body-sm"></span>
+        </div>
+
+        <div class="pt-4 border-t border-light-outline-variant/50 flex flex-col gap-2">
+          <p data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface-variant">Automatic role routing</p>
+          <div class="grid grid-cols-3 gap-2">
+            <div class="rounded bg-light-surface-container-low px-2 py-1.5 flex flex-col">
+              <span data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface">Admin</span>
+              <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-light-on-surface-variant">/admin</span>
+            </div>
+            <div class="rounded bg-light-surface-container-low px-2 py-1.5 flex flex-col">
+              <span data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface">Staff</span>
+              <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-light-on-surface-variant">/portal</span>
+            </div>
+            <div class="rounded bg-light-surface-container-low px-2 py-1.5 flex flex-col">
+              <span data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface">Buyer</span>
+              <span data-design-text-token="mono-sm" class="font-mono text-mono-sm text-light-on-surface-variant">/shop/...</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PANEL 2: SET PASSWORD -->
+      <section id="panel-set-password" class="auth-panel hidden rounded-lg bg-light-surface-container-lowest border border-light-outline-variant/70 p-5 flex flex-col gap-5">
+        <div class="flex flex-col gap-1">
+          <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-light-secondary-container text-light-on-secondary-container w-fit mb-1">
+            <span data-design-text-token="label-sm" class="font-label text-label-sm">Arjun Traders Pvt Ltd</span>
+          </div>
+          <h1 data-design-text-token="headline-md" class="font-headline text-headline-md text-light-on-surface text-balance">Set your password</h1>
+          <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant text-pretty">Onboarding for <span class="font-mono text-mono-sm text-light-on-surface">rohan@arjuntraders.in</span>.</p>
+        </div>
+
+        <form class="flex flex-col gap-4" onsubmit="return false;">
+          <label class="flex flex-col gap-gutter-xs w-full">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-light-on-surface">New password</span>
+            <div class="relative flex items-center">
+              <input id="set-new-password" type="password" autocomplete="new-password" placeholder="Minimum 10 characters" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest pl-3 pr-10 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:outline-none focus:ring-1 focus:ring-light-primary">
+              <button type="button" aria-label="Toggle password visibility" onclick="togglePasswordVisibility(&#39;set-new-password&#39;, this)" class="absolute right-2.5 text-light-outline hover:text-light-on-surface p-1 rounded">
+                <span class="material-symbols-outlined text-[18px]">visibility</span>
+              </button>
+            </div>
+          </label>
+
+          <label class="flex flex-col gap-gutter-xs w-full">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-light-on-surface">Confirm password</span>
+            <input type="password" autocomplete="new-password" placeholder="Re-enter password" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:outline-none focus:ring-1 focus:ring-light-primary">
+          </label>
+
+          <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="submit" class="mt-1 w-full inline-flex items-center justify-center px-gutter-md py-2.5 rounded bg-light-primary text-light-on-primary hover:bg-light-primary-container">
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Activate account</span>
+          </button>
+        </form>
+      </section>
+
+      <!-- PANEL 3: FORGOT / RESET -->
+      <section id="panel-forgot-reset" class="auth-panel hidden rounded-lg bg-light-surface-container-lowest border border-light-outline-variant/70 p-5 flex flex-col gap-5">
+        <div class="flex flex-col gap-1">
+          <h1 data-design-text-token="headline-md" class="font-headline text-headline-md text-light-on-surface text-balance">Reset your password</h1>
+          <p data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface-variant text-pretty">We will send a 6-digit code to your registered e-mail or mobile.</p>
+        </div>
+
+        <form class="flex flex-col gap-4" onsubmit="return false;">
+          <label class="flex flex-col gap-gutter-xs w-full">
+            <span data-design-text-token="label-md" class="font-label text-label-md text-light-on-surface">E-mail or mobile number</span>
+            <input type="text" placeholder="ops@arjuntraders.in or 9820144120" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3 py-2.5 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:outline-none focus:ring-1 focus:ring-light-primary">
+          </label>
+
+          <button data-component-id="button-primary" data-component-type="button" data-component-variant="primary" type="submit" class="w-full inline-flex items-center justify-center px-gutter-md py-2.5 rounded bg-light-primary text-light-on-primary hover:bg-light-primary-container">
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Send reset link</span>
+          </button>
+
+          <button type="button" onclick="switchAuthTab(&#39;login&#39;)" class="w-full inline-flex items-center justify-center gap-1.5 py-2 text-label-md font-label text-light-on-surface-variant hover:text-light-on-surface">
+            <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_back</span>
+            <span>Back to sign in</span>
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full flex items-center justify-between text-body-sm text-light-on-surface-variant">
+      <span data-design-text-token="body-sm" class="font-body text-body-sm">LedgerStack</span>
+      <span data-design-text-token="mono-sm" class="font-mono text-mono-sm">Silent Refresh On</span>
+    </footer>
+  </div>
+
+  <script>
+    function switchAuthTab(tabName) {
+      document.querySelectorAll('.auth-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById('panel-' + tabName).classList.remove('hidden');
+
+      document.querySelectorAll('.auth-tab').forEach(btn => {
+        const active = btn.getAttribute('data-auth-tab') === tabName;
+        if (active) {
+          btn.classList.add('bg-light-surface-container-lowest', 'text-light-on-surface', 'border', 'border-light-outline-variant/60');
+          btn.classList.remove('text-light-on-surface-variant');
+        } else {
+          btn.classList.remove('bg-light-surface-container-lowest', 'text-light-on-surface', 'border', 'border-light-outline-variant/60');
+          btn.classList.add('text-light-on-surface-variant');
+        }
+      });
+    }
+
+    document.querySelectorAll('.auth-tab').forEach(btn => {
+      btn.addEventListener('click', () => switchAuthTab(btn.getAttribute('data-auth-tab')));
+    });
+
+    function togglePasswordVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = 'visibility_off';
+      } else {
+        input.type = 'password';
+        icon.textContent = 'visibility';
+      }
+    }
+
+    function simulateLogin() {
+      const val = (document.getElementById('login-identifier').value || '').trim().toLowerCase();
+      const box = document.getElementById('login-feedback');
+      const text = document.getElementById('login-feedback-text');
+      let route = '/portal';
+      if (val.includes('admin') || val.includes('ledgerstack')) route = '/admin';
+      else if (val.includes('shop') || val.includes('buyer')) route = '/shop/arjun-traders';
+      text.textContent = 'Session active. Redirecting to ' + route;
+      box.classList.remove('hidden');
+    }
+  </script>
+
+
+</body></html>

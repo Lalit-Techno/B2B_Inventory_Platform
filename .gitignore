@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.next/
+coverage/
+*.log
+
+# Secrets and local data
+.env
+.env.*
+!.env.example
+backend/storage/
+*.dump
+*.sql.gz
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Claude Code local settings
+.claude/settings.local.json

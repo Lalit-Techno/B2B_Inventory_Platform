@@ -1,0 +1,459 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizations (Mobile) — LedgerStack</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">/** @type {import('tailwindcss').Config} */
+globalThis.tailwind = globalThis.tailwind || {};
+globalThis.tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        'success': '#14532D',
+        'on-success': '#FFFFFF',
+        'success-container': '#DCFCE7',
+        'on-success-container': '#14532D',
+        'warning': '#78350F',
+        'on-warning': '#FFFFFF',
+        'warning-container': '#FEF3C7',
+        'on-warning-container': '#78350F',
+        'light-primary': '#003A3E',
+        'light-on-primary': '#FFFFFF',
+        'light-primary-container': '#0F5257',
+        'light-on-primary-container': '#89C4C9',
+        'light-secondary': '#4D6264',
+        'light-on-secondary': '#FFFFFF',
+        'light-secondary-container': '#D0E7E9',
+        'light-on-secondary-container': '#1F3436',
+        'light-tertiary': '#50290C',
+        'light-on-tertiary': '#FFFFFF',
+        'light-tertiary-container': '#6B3F20',
+        'light-on-tertiary-container': '#EAAC85',
+        'light-error': '#BA1A1A',
+        'light-on-error': '#FFFFFF',
+        'light-error-container': '#FFDAD6',
+        'light-on-error-container': '#93000A',
+        'light-background': '#F8FAF9',
+        'light-on-background': '#191C1C',
+        'light-surface': '#F8FAF9',
+        'light-surface-dim': '#D9DADA',
+        'light-surface-bright': '#F8FAF9',
+        'light-surface-container-lowest': '#FFFFFF',
+        'light-surface-container-low': '#F2F4F4',
+        'light-surface-container': '#EDEEEE',
+        'light-surface-container-high': '#E7E8E8',
+        'light-surface-container-highest': '#E1E3E3',
+        'light-on-surface': '#191C1C',
+        'light-surface-variant': '#DBE4E5',
+        'light-on-surface-variant': '#404849',
+        'light-outline': '#707979',
+        'light-outline-variant': '#BFC8C9',
+        'light-inverse-surface': '#2E3131',
+        'light-inverse-on-surface': '#EFF1F1',
+        'light-inverse-primary': '#96D0D6',
+        'light-shadow': '#000000',
+        'light-scrim': '#000000',
+        'dark-primary': '#96D0D6',
+        'dark-on-primary': '#00363A',
+        'dark-primary-container': '#0F5257',
+        'dark-on-primary-container': '#89C4C9',
+        'dark-secondary': '#B4CBCD',
+        'dark-on-secondary': '#1F3436',
+        'dark-secondary-container': '#384D4F',
+        'dark-on-secondary-container': '#A6BDBF',
+        'dark-tertiary': '#F8B991',
+        'dark-on-tertiary': '#4D2609',
+        'dark-tertiary-container': '#6B3F20',
+        'dark-on-tertiary-container': '#EAAC85',
+        'dark-error': '#FFB4AB',
+        'dark-on-error': '#690005',
+        'dark-error-container': '#93000A',
+        'dark-on-error-container': '#FFDAD6',
+        'dark-background': '#111414',
+        'dark-on-background': '#E1E3E3',
+        'dark-surface': '#111414',
+        'dark-surface-dim': '#111414',
+        'dark-surface-bright': '#373A3A',
+        'dark-surface-container-lowest': '#0C0F0F',
+        'dark-surface-container-low': '#191C1C',
+        'dark-surface-container': '#1D2020',
+        'dark-surface-container-high': '#282A2B',
+        'dark-surface-container-highest': '#323535',
+        'dark-on-surface': '#E1E3E3',
+        'dark-surface-variant': '#404849',
+        'dark-on-surface-variant': '#BFC8C9',
+        'dark-outline': '#899293',
+        'dark-outline-variant': '#404849',
+        'dark-inverse-surface': '#E1E3E3',
+        'dark-inverse-on-surface': '#2E3131',
+        'dark-inverse-primary': '#2B676C',
+        'dark-shadow': '#000000',
+        'dark-scrim': '#000000',
+      },
+      borderRadius: {
+        'sm': '4px',
+        'DEFAULT': '6px',
+        'md': '8px',
+        'lg': '12px',
+        'xl': '16px',
+        'full': '9999px',
+      },
+      spacing: {
+        'gutter-xs': '4px',
+        'gutter-sm': '8px',
+        'gutter-md': '16px',
+        'gutter-lg': '24px',
+        'gutter-xl': '32px',
+        'section': '40px',
+        'page-margin': '28px',
+      },
+      fontFamily: {
+        'display': ['"Jost"', 'sans-serif'],
+        'headline': ['"Jost"', 'sans-serif'],
+        'title': ['"Radio Canada Big"', 'sans-serif'],
+        'body': ['"Radio Canada Big"', 'sans-serif'],
+        'label': ['"Radio Canada Big"', 'sans-serif'],
+        'mono': ['"Red Hat Mono"', 'monospace'],
+      },
+      fontSize: {
+        'display-lg': ['36px', { lineHeight: '44px', letterSpacing: '-0.5px', fontWeight: '600' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-lg': ['28px', { lineHeight: '34px', letterSpacing: '-0.25px', fontWeight: '600' }],
+        'headline-md': ['22px', { lineHeight: '28px', letterSpacing: '-0.15px', fontWeight: '600' }],
+        'headline-sm': ['18px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '600' }],
+        'title-md': ['16px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '600' }],
+        'body-lg': ['15px', { lineHeight: '22px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.1px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0.1px', fontWeight: '500' }],
+        'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.2px', fontWeight: '500' }],
+        'label-sm': ['11px', { lineHeight: '14px', letterSpacing: '0.25px', fontWeight: '500' }],
+        'mono-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '400' }],
+      },
+      transitionDuration: {
+        'state-change': '100ms',
+        'surface-enter': '200ms',
+        'surface-exit': '150ms',
+      },
+      transitionDelay: {
+        'state-change': '0ms',
+        'surface-enter': '0ms',
+        'surface-exit': '0ms',
+      },
+      transitionTimingFunction: {
+        'state-change': 'ease-out',
+        'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+        'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+      },
+    },
+  },
+};
+if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
+</script>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&amp;family=Radio+Canada+Big:wght@400;500;600&amp;family=Red+Hat+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
+  <style>.material-symbols-outlined { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }</style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-[884px] flex flex-col bg-light-surface" data-stitch-vh="min-h-[884px]===min-h-screen">
+    <!-- Sticky Mobile Header (identical shell to SuperadminDashboardMobile) -->
+    <header class="h-14 px-4 bg-light-surface-container-lowest border-b border-light-outline-variant/60 flex items-center justify-between gap-3 sticky top-0 z-20">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <button type="button" onclick="toggleMobileNav(true)" aria-label="Open navigation" class="p-1.5 -ml-1.5 rounded text-light-on-surface-variant hover:bg-light-surface-container-low">
+          <span class="material-symbols-outlined text-[22px]">menu</span>
+        </button>
+        <h1 data-design-text-token="headline-sm" class="font-headline text-headline-sm text-light-on-surface truncate">Organizations</h1>
+      </div>
+      <button type="button" onclick="openWizard()" data-component-id="button-with-icon" data-component-type="button" data-component-variant="with-icon" class="shrink-0 inline-flex items-center justify-center gap-1 px-3 py-1.5 rounded bg-light-primary text-light-on-primary hover:bg-light-primary-container transition-colors duration-state-change">
+        <span class="material-symbols-outlined text-[16px]" aria-hidden="true">add</span>
+        <span data-design-text-token="label-md" class="font-label text-label-md">Onboard</span>
+      </button>
+    </header>
+
+    <main class="flex-1 p-4 flex flex-col gap-4">
+      <!-- Search + Status Filter -->
+      <div class="flex flex-col gap-3">
+        <div class="relative flex items-center w-full">
+          <span class="material-symbols-outlined text-[18px] text-light-outline absolute left-3 pointer-events-none" aria-hidden="true">search</span>
+          <input id="org-search" type="search" oninput="renderList()" placeholder="Search name, GSTIN, or slug..." class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest pl-9 pr-3 py-2 text-body-md text-light-on-surface placeholder:text-light-outline focus:border-light-primary focus:outline-none focus:ring-1 focus:ring-light-primary">
+        </div>
+
+        <div class="grid grid-cols-4 gap-1 p-1 rounded bg-light-surface-container-low border border-light-outline-variant/60">
+          <button type="button" onclick="setStatusFilter(&#39;all&#39;, this)" class="status-filter px-2 py-1 rounded text-label-sm font-label bg-light-surface-container-lowest text-light-on-surface border border-light-outline-variant/60">All (4)</button>
+          <button type="button" onclick="setStatusFilter(&#39;Active&#39;, this)" class="status-filter px-2 py-1 rounded text-label-sm font-label text-light-on-surface-variant">Active</button>
+          <button type="button" onclick="setStatusFilter(&#39;Trial&#39;, this)" class="status-filter px-2 py-1 rounded text-label-sm font-label text-light-on-surface-variant">Trial</button>
+          <button type="button" onclick="setStatusFilter(&#39;Suspended&#39;, this)" class="status-filter px-2 py-1 rounded text-label-sm font-label text-light-on-surface-variant">Suspended</button>
+        </div>
+      </div>
+
+      <!-- Organizations Card List -->
+      <section id="org-card-list" class="flex flex-col gap-2.5">
+        <!-- Populated by JS -->
+      </section>
+
+      <!-- Selected Organization Detail Card (P1-FE-05) -->
+      <article id="org-detail-card" data-component-id="card-action" data-component-type="card" data-component-variant="action" class="rounded-md bg-light-surface-container-lowest border border-light-outline-variant/70 p-4 flex flex-col gap-4">
+        <header class="flex items-start justify-between gap-2">
+          <div>
+            <h2 id="detail-name" data-design-text-token="title-md" class="font-title text-title-md text-light-on-surface">Arjun Traders Pvt Ltd</h2>
+            <p id="detail-slug" data-design-text-token="mono-sm" class="font-mono text-mono-sm text-light-on-surface-variant">arjun-traders</p>
+          </div>
+          <span id="detail-badge"></span>
+        </header>
+
+        <dl class="grid grid-cols-2 gap-y-2.5 gap-x-3 py-3 border-y border-light-outline-variant/50">
+          <div>
+            <dt data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface-variant">GSTIN</dt>
+            <dd id="detail-gstin" data-design-text-token="mono-sm" class="font-mono text-mono-sm text-light-on-surface tabular-nums">27AABCA4921M1Z5</dd>
+          </div>
+          <div>
+            <dt data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface-variant">Derived PAN</dt>
+            <dd id="detail-pan" data-design-text-token="mono-sm" class="font-mono text-mono-sm text-light-on-surface tabular-nums">AABCA4921M</dd>
+          </div>
+          <div>
+            <dt data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface-variant">State</dt>
+            <dd id="detail-state" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface">Maharashtra (27)</dd>
+          </div>
+          <div>
+            <dt data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface-variant">Valid until</dt>
+            <dd id="detail-expiry" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface tabular-nums">14 Dec 2026</dd>
+          </div>
+        </dl>
+
+        <div class="flex flex-col gap-1.5">
+          <span data-design-text-token="label-md" class="font-label text-label-md text-light-on-surface">Tenant admin link</span>
+          <div class="flex items-center gap-2">
+            <div class="flex-1 min-w-0 rounded bg-light-surface-container-low px-2.5 py-2 border border-light-outline-variant/60">
+              <p id="detail-admin-link" data-design-text-token="mono-sm" class="font-mono text-mono-sm text-light-on-surface truncate">https://portal.ledgerstack.in/arjun-traders</p>
+            </div>
+            <button type="button" onclick="copyAdminLink()" class="shrink-0 inline-flex items-center gap-1 px-2.5 py-2 rounded border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface hover:bg-light-surface-container-low">
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">content_copy</span>
+              <span id="copy-btn-label" data-design-text-token="label-sm" class="font-label text-label-sm">Copy</span>
+            </button>
+          </div>
+        </div>
+
+        <footer class="flex items-center justify-between gap-2 pt-2 border-t border-light-outline-variant/50">
+          <span data-design-text-token="body-sm" class="font-body text-body-sm text-light-on-surface-variant">Access control</span>
+          <button id="toggle-status-btn" type="button" onclick="toggleOrgStatus()" class="inline-flex items-center justify-center px-3 py-1.5 rounded bg-light-error text-light-on-error">
+            <span data-design-text-token="label-md" class="font-label text-label-md">Suspend tenant</span>
+          </button>
+        </footer>
+      </article>
+    </main>
+  </div>
+
+  <!-- Mobile Onboard Organization Modal (GstinInput) -->
+  <div id="onboard-modal" class="hidden fixed inset-0 z-50 bg-light-scrim/40 flex items-center justify-center p-4">
+    <div role="dialog" aria-modal="true" aria-labelledby="wizard-title" class="w-full rounded-lg bg-light-surface-container-lowest border border-light-outline-variant shadow-lg overflow-hidden">
+      <header class="px-4 py-3 border-b border-light-outline-variant/60 flex items-center justify-between">
+        <div>
+          <h2 id="wizard-title" data-design-text-token="headline-sm" class="font-headline text-headline-sm text-light-on-surface">Onboard organization</h2>
+          <p data-design-text-token="body-sm" class="font-body text-body-sm text-light-on-surface-variant">GSTIN derives state &amp; PAN</p>
+        </div>
+        <button type="button" onclick="closeWizard()" aria-label="Close dialog" class="w-8 h-8 rounded inline-flex items-center justify-center text-light-on-surface-variant hover:bg-light-surface-container-low">
+          <span class="material-symbols-outlined text-[20px]">close</span>
+        </button>
+      </header>
+
+      <form class="p-4 flex flex-col gap-3.5" onsubmit="return false;">
+        <label class="flex flex-col gap-1">
+          <span data-design-text-token="label-md" class="font-label text-label-md text-light-on-surface">Legal organization name</span>
+          <input id="wiz-name" type="text" placeholder="e.g. Sahyadri Logistics Pvt Ltd" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3 py-2 text-body-md text-light-on-surface focus:border-light-primary focus:outline-none focus:ring-1 focus:ring-light-primary">
+        </label>
+
+        <div class="flex flex-col gap-1.5">
+          <label for="wiz-gstin" data-design-text-token="label-md" class="font-label text-label-md text-light-on-surface">GSTIN (15-character)</label>
+          <input id="wiz-gstin" type="text" maxlength="15" oninput="deriveFromGstin(this.value)" value="29AAACB1234C1Z2" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3 py-2 font-mono text-mono-md uppercase text-light-on-surface focus:border-light-primary focus:outline-none focus:ring-1 focus:ring-light-primary">
+          <div class="grid grid-cols-2 gap-2.5 pt-1">
+            <div class="rounded bg-light-surface-container-low px-2.5 py-1.5 border border-light-outline-variant/50">
+              <span data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface-variant block">Derived state</span>
+              <span id="wiz-derived-state" data-design-text-token="body-md" class="font-body text-body-md text-light-on-surface">Karnataka (29)</span>
+            </div>
+            <div class="rounded bg-light-surface-container-low px-2.5 py-1.5 border border-light-outline-variant/50">
+              <span data-design-text-token="label-sm" class="font-label text-label-sm text-light-on-surface-variant block">Derived PAN</span>
+              <span id="wiz-derived-pan" data-design-text-token="mono-md" class="font-mono text-mono-md text-light-on-surface">AAACB1234C</span>
+            </div>
+          </div>
+        </div>
+
+        <label class="flex flex-col gap-1">
+          <span data-design-text-token="label-md" class="font-label text-label-md text-light-on-surface">Subscription plan</span>
+          <select id="wiz-plan" class="w-full rounded border border-light-outline-variant bg-light-surface-container-lowest px-3 py-2 text-body-md text-light-on-surface focus:border-light-primary focus:outline-none focus:ring-1 focus:ring-light-primary">
+            <option value="Starter">Starter (₹1,999/mo)</option>
+            <option value="Growth" selected>Growth (₹6,499/mo)</option>
+            <option value="Enterprise">Enterprise (₹12,000/mo)</option>
+          </select>
+        </label>
+
+        <footer class="flex items-center justify-end gap-2 pt-3 border-t border-light-outline-variant/50">
+          <button type="button" onclick="closeWizard()" class="px-3.5 py-2 rounded border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface font-label text-label-md">Cancel</button>
+          <button type="button" onclick="submitWizard()" class="px-3.5 py-2 rounded bg-light-primary text-light-on-primary font-label text-label-md">Create org</button>
+        </footer>
+      </form>
+    </div>
+  </div>
+
+  <!-- Slide-over Mobile Navigation Drawer -->
+  <div id="mobile-nav-drawer" class="hidden fixed inset-0 z-50 bg-light-scrim/40 flex">
+    <aside class="w-64 min-h-[884px] bg-light-surface-container-lowest border-r border-light-outline-variant/60 flex flex-col justify-between" data-stitch-vh="min-h-[884px]===min-h-screen">
+      <div>
+        <div class="h-14 px-4 flex items-center justify-between border-b border-light-outline-variant/50">
+          <div class="flex items-center gap-2">
+            <div class="w-7 h-7 rounded bg-light-primary text-light-on-primary flex items-center justify-center">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">inventory_2</span>
+            </div>
+            <span data-design-text-token="title-md" class="font-headline text-title-md text-light-on-surface">LedgerStack</span>
+          </div>
+          <button type="button" onclick="toggleMobileNav(false)" aria-label="Close navigation" class="p-1.5 rounded text-light-on-surface-variant hover:bg-light-surface-container-low">
+            <span class="material-symbols-outlined text-[20px]">close</span>
+          </button>
+        </div>
+        <nav aria-label="Superadmin navigation" class="p-3 flex flex-col gap-1">
+          <a href="../superadmin-dashboard-mobile/SuperadminDashboardMobile.html" class="flex items-center gap-3 px-3 py-2 rounded text-light-on-surface-variant hover:bg-light-surface-container-low">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">dashboard</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Dashboard</span>
+          </a>
+          <a href="#" aria-current="page" class="flex items-center gap-3 px-3 py-2 rounded bg-light-secondary-container/70 text-light-primary font-medium">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">corporate_fare</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Organizations</span>
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3 py-2 rounded text-light-on-surface-variant hover:bg-light-surface-container-low">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">layers</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Plans</span>
+          </a>
+          <a href="#" class="flex items-center gap-3 px-3 py-2 rounded text-light-on-surface-variant hover:bg-light-surface-container-low">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">receipt_long</span>
+            <span data-design-text-token="label-lg" class="font-label text-label-lg">Subscription ledger</span>
+          </a>
+        </nav>
+      </div>
+      <div class="p-3 border-t border-light-outline-variant/50 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-light-primary text-light-on-primary flex items-center justify-center shrink-0">
+          <span class="font-label text-label-md">VM</span>
+        </div>
+        <div class="min-w-0">
+          <p class="font-label text-label-md text-light-on-surface truncate">Vikram Mehta</p>
+          <p class="font-body text-body-sm text-light-on-surface-variant truncate">Superadmin</p>
+        </div>
+      </div>
+    </aside>
+    <div class="flex-1" onclick="toggleMobileNav(false)"></div>
+  </div>
+
+  <script>
+    const gstStates = { '07': 'Delhi', '24': 'Gujarat', '27': 'Maharashtra', '29': 'Karnataka', '33': 'Tamil Nadu', '36': 'Telangana' };
+    const orgs = [
+      { id: 1, name: 'Arjun Traders Pvt Ltd', slug: 'arjun-traders', gstin: '27AABCA4921M1Z5', pan: 'AABCA4921M', state: 'Maharashtra (27)', plan: 'Growth', status: 'Active', expiry: '14 Dec 2026' },
+      { id: 2, name: 'Kaveri Distributors LLP', slug: 'kaveri-dist', gstin: '29AAKFK8102D1Z8', pan: 'AAKFK8102D', state: 'Karnataka (29)', plan: 'Enterprise', status: 'Active', expiry: '29 Nov 2026' },
+      { id: 3, name: 'Meenakshi Pharma Supply', slug: 'meenakshi-pharma', gstin: '33AABCM7410K1Z3', pan: 'AABCM7410K', state: 'Tamil Nadu (33)', plan: 'Growth', status: 'Trial', expiry: '05 Dec 2026' },
+      { id: 4, name: 'Narmada Hardware Supply', slug: 'narmada-hardware', gstin: '24AAACN3019E1Z1', pan: 'AAACN3019E', state: 'Gujarat (24)', plan: 'Starter', status: 'Suspended', expiry: '08 Nov 2026' }
+    ];
+    let selectedOrgId = 1;
+    let currentFilter = 'all';
+
+    function statusBadgeHtml(status) {
+      if (status === 'Active') return `<span role="status" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-success-container text-on-success-container"><span class="w-1.5 h-1.5 rounded-full bg-success"></span><span class="font-label text-label-sm">Active</span></span>`;
+      if (status === 'Suspended') return `<span role="status" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-light-error-container text-light-on-error-container"><span class="w-1.5 h-1.5 rounded-full bg-light-error"></span><span class="font-label text-label-sm">Suspended</span></span>`;
+      return `<span role="status" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-light-surface-container-high text-light-on-surface-variant"><span class="font-label text-label-sm">${status}</span></span>`;
+    }
+
+    function renderList() {
+      const q = (document.getElementById('org-search').value || '').trim().toLowerCase();
+      const filtered = orgs.filter(o => (currentFilter === 'all' || o.status === currentFilter) && (!q || o.name.toLowerCase().includes(q) || o.gstin.toLowerCase().includes(q) || o.slug.toLowerCase().includes(q)));
+      document.getElementById('org-card-list').innerHTML = filtered.map(o => `
+        <article onclick="selectOrg(${o.id})" class="cursor-pointer rounded-md p-3.5 border ${o.id === selectedOrgId ? 'bg-light-secondary-container/30 border-light-primary' : 'bg-light-surface-container-lowest border-light-outline-variant/70'} flex flex-col gap-2">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <p class="font-label text-label-lg text-light-on-surface">${o.name}</p>
+              <p class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums">${o.gstin}</p>
+            </div>
+            ${statusBadgeHtml(o.status)}
+          </div>
+          <div class="flex items-center justify-between text-body-sm text-light-on-surface-variant">
+            <span>${o.state} · ${o.plan}</span>
+            <span class="font-label text-label-sm text-light-primary">Inspect</span>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    function selectOrg(id) {
+      selectedOrgId = id;
+      const org = orgs.find(o => o.id === id);
+      if (!org) return;
+      document.getElementById('detail-name').textContent = org.name;
+      document.getElementById('detail-slug').textContent = org.slug;
+      document.getElementById('detail-badge').innerHTML = statusBadgeHtml(org.status);
+      document.getElementById('detail-gstin').textContent = org.gstin;
+      document.getElementById('detail-pan').textContent = org.pan;
+      document.getElementById('detail-state').textContent = org.state;
+      document.getElementById('detail-expiry').textContent = org.expiry;
+      document.getElementById('detail-admin-link').textContent = 'https://portal.ledgerstack.in/' + org.slug;
+      const btn = document.getElementById('toggle-status-btn');
+      if (org.status === 'Suspended') {
+        btn.className = 'inline-flex items-center justify-center px-3 py-1.5 rounded bg-light-primary text-light-on-primary';
+        btn.innerHTML = '<span class="font-label text-label-md">Reactivate tenant</span>';
+      } else {
+        btn.className = 'inline-flex items-center justify-center px-3 py-1.5 rounded bg-light-error text-light-on-error';
+        btn.innerHTML = '<span class="font-label text-label-md">Suspend tenant</span>';
+      }
+      renderList();
+    }
+
+    function toggleOrgStatus() {
+      const org = orgs.find(o => o.id === selectedOrgId);
+      if (!org) return;
+      org.status = org.status === 'Suspended' ? 'Active' : 'Suspended';
+      selectOrg(org.id);
+    }
+
+    function setStatusFilter(status, btn) {
+      currentFilter = status;
+      document.querySelectorAll('.status-filter').forEach(b => {
+        b.classList.remove('bg-light-surface-container-lowest', 'text-light-on-surface', 'border', 'border-light-outline-variant/60');
+        b.classList.add('text-light-on-surface-variant');
+      });
+      btn.classList.add('bg-light-surface-container-lowest', 'text-light-on-surface', 'border', 'border-light-outline-variant/60');
+      btn.classList.remove('text-light-on-surface-variant');
+      renderList();
+    }
+
+    function copyAdminLink() {
+      const label = document.getElementById('copy-btn-label');
+      label.textContent = 'Copied';
+      setTimeout(() => { label.textContent = 'Copy'; }, 1500);
+    }
+
+    function openWizard() { document.getElementById('onboard-modal').classList.remove('hidden'); }
+    function closeWizard() { document.getElementById('onboard-modal').classList.add('hidden'); }
+    function toggleMobileNav(open) { document.getElementById('mobile-nav-drawer').classList.toggle('hidden', !open); }
+
+    function deriveFromGstin(raw) {
+      const val = (raw || '').toUpperCase().trim();
+      const code = val.slice(0, 2);
+      const pan = val.length >= 12 ? val.slice(2, 12) : '—';
+      const stateName = gstStates[code] ? `${gstStates[code]} (${code})` : (code.length === 2 ? `State ${code}` : '—');
+      document.getElementById('wiz-derived-state').textContent = stateName;
+      document.getElementById('wiz-derived-pan').textContent = pan;
+    }
+
+    function submitWizard() {
+      const name = document.getElementById('wiz-name').value.trim() || 'Sahyadri Logistics Pvt Ltd';
+      const gstin = (document.getElementById('wiz-gstin').value || '29AAACB1234C1Z2').toUpperCase().trim();
+      const plan = document.getElementById('wiz-plan').value;
+      const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const code = gstin.slice(0, 2);
+      const newId = orgs.length + 1;
+      orgs.unshift({ id: newId, name, slug, gstin, pan: gstin.slice(2, 12), state: gstStates[code] ? `${gstStates[code]} (${code})` : `State ${code}`, plan, status: 'Trial', expiry: '10 Dec 2026' });
+      closeWizard();
+      selectOrg(newId);
+    }
+
+    selectOrg(1);
+  </script>
+
+
+</body></html>
